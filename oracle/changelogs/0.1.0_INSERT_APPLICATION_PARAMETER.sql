@@ -1,0 +1,6 @@
+--liquibase formatted sql
+--changeset one:0.1.0 endDelimiter:;
+INSERT INTO TMP_1.APPLICATION_PARAMETER
+(CATEGORY, NAME, VALUE, VERSION)
+VALUES('WEB', 'test', 'val', 1);
+--rollback DELETE FROM TMP_1.APPLICATION_PARAMETER WHERE CATEGORY='WEB' AND NAME='test';

@@ -1,0 +1,42 @@
+version: '3'
+services:
+  postgres:
+    image: postgres:13.7
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    # volumes:
+    #  - ./init-script-db:/docker-entrypoint-initdb.d/
+    ports:
+      - "5434:5432"
+
+  oracle:
+    image: oracle-db-18c
+    build:
+      context: ./oracle/18.4.0
+      dockerfile: Dockerfile
+    environment:
+      ORACLE_PWD: password
+    volumes:
+      - ./oracle-data:/opt/oracle/oradata
+      # - ./init-script-db:/docker-entrypoint-initdb.d/
+      # - ./init-script-db:/opt/oracle/scripts/setup
+    ports:
+      - "1521:1521"
+
+  sqlplus_start:
+    image: sqlplus:1.0
+    container_name: sqlplus_start
+    build:
+      context: ./sqlplus
+      dockerfile: Dockerfile
+    command: bash -c "/usr/local/bin/start.sh"
+
+  sqlplus_stop:
+    image: sqlplusl:1.0
+    container_name: sqlplus_stop
+    build:
+      context: ./sqlplus
+      dockerfile: Dockerfile
+    command: bash -c "/usr/local/bin/stop.sh"
