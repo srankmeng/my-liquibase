@@ -1,0 +1,21 @@
+liquibase validate
+
+liquibase update
+
+liquibase history
+
+liquibase rollbackcount 1
+
+liquibase updatetestingrollback
+
+liquibase tag <TAG_NAME>  ==> create tag name on current change
+
+liquibase tagexists --tag <TAG_NAME> ==> check tag name existing
+
+liquibase rollback <TAG_NAME> ==> rollback ไปที่ tag name
+
+liquibase status --verbose ==> check ว่ามีของที่ยังไม่ apply มั้ย
+
+liquibase updatesql --outputFile=<FILE_NAME> ==> Generate sql script file ของอันที่ยังไม่ได้ถูก apply
+
+liquibase futurerollbacksql --outputFile=<FILE_NAME> ==> Generate rollback sql script file ของอันที่ยังไม่ได้ถูก apply
