@@ -6,16 +6,6 @@ password="password"
 domain="host.docker.internal:1521"
 database="XEPDB1"
 
-# SQL script to create a new table
-# sql_script=$(cat <<EOF
-# CREATE TABLE HR.QQQ (
-#   id NUMBER,
-#   name VARCHAR2(50),
-#   age NUMBER
-# );
-# EOF
-# )
-
 sql_script=$(cat <<EOF
 CREATE USER TMP_1 IDENTIFIED BY password;
 ALTER USER TMP_1 quota unlimited ON USERS;
