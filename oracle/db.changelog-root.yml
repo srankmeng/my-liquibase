@@ -1,0 +1,41 @@
+databaseChangeLog:  
+   - changeSet:  
+      id:  0.1.0
+      author:  one
+      changes:
+         - sqlFile:
+            path: sql_changelogs/0.1.0_INSERT_APPLICATION_PARAMETER.sql
+         - rollback:
+            - sqlFile:
+               path: sql_changelogs/rollbacks/0.1.0_INSERT_APPLICATION_PARAMETER.sql
+   - changeSet:  
+      id:  0.1.1
+      author:  one
+      changes:
+         - sqlFile:
+            path: ./sql_changelogs/0.1.1_INSERT_APPLICATION_PARAMETER.sql
+         - sqlFile:
+            path: ./sql_changelogs/0.1.2_INSERT_APPLICATION_PARAMETER.sql
+         - rollback:
+            - sqlFile:
+               path: sql_changelogs/rollbacks/0.1.1_INSERT_APPLICATION_PARAMETER.sql
+            - sqlFile:
+               path: sql_changelogs/rollbacks/0.1.2_INSERT_APPLICATION_PARAMETER.sql
+   - changeSet:  
+      id:  0.1.3
+      author:  one
+      changes:
+         - sqlFile:
+            path: ./sql_changelogs/0.1.3_INSERT_MULTI_APPLICATION_PARAMETER.sql
+         - rollback:
+            - sqlFile:
+               path: sql_changelogs/rollbacks/0.1.3_INSERT_MULTI_APPLICATION_PARAMETER.sql
+   - changeSet:  
+      id:  0.1.4
+      author:  one
+      changes:
+         - sqlFile:
+            path: ./sql_changelogs/0.1.4_ALTER_COLUMN.sql
+         - rollback:
+            - sqlFile:
+               path: sql_changelogs/rollbacks/0.1.4_ALTER_COLUMN.sql
